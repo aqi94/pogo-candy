@@ -4,7 +4,7 @@ function buildSelect(selectId, containerId) {
         let opt = `<option value="${pkmn}">${pkmn}</option>`;
         select.insertAdjacentHTML('beforeend', opt);
     }
-    select.onchange = function() {
+    select.oninput = function() {
         document.getElementById("color1").value = "#" + colorsDB[this.value][0];
         document.getElementById("color2").value = "#" + colorsDB[this.value][1];
         inputToRender(containerId);
@@ -21,10 +21,12 @@ function swapColors(containerId) {
 }
 
 function inputToRender(containerId) {
-    filename = "Custom Candy.png";
     primaryColor = document.getElementById("color1").value;
+    document.getElementById("color1Disp").innerHTML = primaryColor.toUpperCase();
     secondaryColor = document.getElementById("color2").value;
+    document.getElementById("color2Disp").innerHTML = secondaryColor.toUpperCase();
     background = (isMega) ? primaryColor : "000000";
+    filename = `PoGO_Candy_${primaryColor.replace("#", "").toUpperCase()}_${secondaryColor.replace("#", "").toUpperCase()}.png`
     render2(primaryColor, secondaryColor, containerId, filename, "ffffff", background);
 }
 
@@ -38,8 +40,10 @@ function pkmnToId(pkmn) {
 }
 function renderAll() {
     $("#renderAll").prop('disabled', true);
+    $renderContent = $('#renderContent');
+    $renderContent.html("");
     for (pkmn in colorsDB) {
-        $('#renderContent').append(`<div class="pkmn" style="width:${WIDTH}px" id="${pkmnToId(pkmn) + '_cell'}"><a id="${pkmnToId(pkmn)}"></a></div>`);
+        $renderContent.append(`<div class="pkmn" style="width:${WIDTH}px" id="${pkmnToId(pkmn) + '_cell'}"><a id="${pkmnToId(pkmn)}"></a></div>`);
         let primaryColor = colorsDB[pkmn][0];
         let secondaryColor = colorsDB[pkmn][1];
         let highlight = (colorsDB[pkmn].length > 2) ? colorsDB[pkmn][2] : "ffffff";

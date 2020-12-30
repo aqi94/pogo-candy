@@ -53,19 +53,30 @@
 				margin-bottom: 0.67em;
 				text-align: left;
 			}
+			td {
+				text-align:center;
+			}
 		</style>
 	</head>
 	<body id="body">
+	<table id="navbar" style="background:#ededed; width:100%; text-align:center">
+		<tr>
+			<td><a href="/small"><button type="button" class="ribbon" style="position:static; font-size:100%; width:auto">Candy<br>(icon)</button></a></td>
+			<td><a href="/art"><button type="button" class="ribbon" style="position:static; font-size:100%; width:auto">Candy<br>(large)</button></a></td>
+			<td><a href="/xl"><button type="button" class="ribbon" style="position:static; font-size:100%; width:auto">Candy XL</button></a></td>
+			<td><a href="/mega"><button type="button" class="ribbon" style="position:static; font-size:100%; width:auto">Mega Energy</button></a></td>
+		</tr>
+	</table><br>
 	<div id="controls">
 		<table>
 			<tr>
 				<td style="width:256px; height:256px; vertical-align:center; text-align:center;">
 					<a id="mainImg"></a>
 				</td>
-				<td style="vertical-align:top; width:200px">
-					<label for="color1">Color 1:</label>&nbsp;<input type="color" id="color1" value="#{{base}}" oninput="inputToRender('mainImg')"><br>
+				<td style="vertical-align:top; width:300px">
+					<label for="color1">Color 1:</label>&nbsp;<input type="color" id="color1" value="#{{base}}" oninput="inputToRender('mainImg')"> <p id="color1Disp"></p>
 					<br><br>
-					<label for="color2">Color 2:</label>&nbsp;<input type="color" id="color2" value="#{{secondary}}" oninput="inputToRender('mainImg')"><br>
+					<label for="color2">Color 2:</label>&nbsp;<input type="color" id="color2" value="#{{secondary}}" oninput="inputToRender('mainImg')"> <p id="color2Disp"></p>
 					<br><br>
 					<button type="button" id="swapBtn" onclick="swapColors('mainImg')">Swap Colors</button>
 				</td>
@@ -81,6 +92,7 @@
 		<button type="button" id="clickAll" disabled>Download All</button>
 	</div>
 	<div id="renderContent" style="text-align:center">
+		<p><br>Rendering content may take several seconds.</p>
 	</div>
 	</body>
 </html>

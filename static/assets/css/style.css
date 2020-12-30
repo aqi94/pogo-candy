@@ -39,14 +39,12 @@ hr {
 }
 .ribbon {
 	display: block;
-	position: absolute;
 	right: 1em;
 	top: 1em;
 	padding: 0.5em;
 	border: thin solid #E1E1E1;
 	color : #37423D;
-	background: #E8F0E1;
-	font-size: 0.25em;
+	background: #6DEDB7;
 	text-decoration: none;
 	-webkit-border-radius: 0.5em;
        -moz-border-radius: 0.5em;
