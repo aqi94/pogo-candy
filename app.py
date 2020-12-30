@@ -3,11 +3,7 @@ from flask_bootstrap import Bootstrap
 import pandas as pd
 import pathlib, os, io
 from ImageMask import apply_color_mask_rgb, render_image, Image
-
-def __colors_from_csv(filename):
-    df = pd.read_csv(open(filename, 'r', encoding='utf-8'), dtype=object)
-    return df.where(pd.notnull(df), None)
-
+from import_gs import get_colors
 
 PATH = pathlib.Path(__file__).parent.absolute()
 
@@ -53,7 +49,7 @@ def api_render(path):
 @app.route('/<path>', methods=['GET'])
 def candy_render(path):
     def build_colors_db():
-        colors = __colors_from_csv('CandyColors.csv')
+        colors = get_colors()
         colors_dict = {}
         for idx, row in colors.iterrows():
             if row['Base color']:

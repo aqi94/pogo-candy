@@ -10,3 +10,4 @@ urllib3
 visitor
 Werkzeug
 gunicorn
+requests
