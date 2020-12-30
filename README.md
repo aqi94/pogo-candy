@@ -11,6 +11,7 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+Run the following in your terminal to start:
 
 ```python
 python app.py
