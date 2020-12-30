@@ -1,0 +1,78 @@
+@font-face {
+	font-family: DroidSans;
+	src: url(../fonts/DroidSans.ttf);
+}
+@font-face {
+	font-family: DroidSansBold;
+	src: url(../fonts/DroidSans-Bold.ttf);
+}
+body {
+	background: #FFFFFF;
+	color : #626262;
+	font-family: DroidSans, Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+header {
+	position: relative;
+	margin-bottom: 0.5em;
+	color : #44696C;
+	font-size: 3em;
+	font-family: DroidSansBold, DroidSans, Arial, "Helvetica Neue", Helvetica, sans-serif;
+	text-align: center;
+}
+.subheading {
+	color : #44696C;
+	font-size: 2em;
+	font-family: DroidSans, Arial, "Helvetica Neue", Helvetica, sans-serif;
+	text-align: center;
+}
+#wrapper {
+	padding: 1em;
+}
+header, section, footer, aside, nav, article, figure, audio, video, canvas {
+	display: block;
+}
+hr {
+	background: #6DEDB7;
+	height: 0.75em;
+	width: 40vw;
+	border: 0;
+}
+.ribbon {
+	display: block;
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	padding: 0.5em;
+	border: thin solid #E1E1E1;
+	color : #37423D;
+	background: #E8F0E1;
+	font-size: 0.25em;
+	text-decoration: none;
+	-webkit-border-radius: 0.5em;
+       -moz-border-radius: 0.5em;
+            border-radius: 0.5em; 
+}
+.ribbon:hover {
+	color: #6DEDB7;
+	background: #FAFAFA;
+	border-color: #59797C;
+}
+.ribbon:active {
+	color: #E6FFDE;
+	background: #CBDFE5
+}
+.pkmn {
+	display: inline-block;
+	border: thin solid #E8F0E1;
+	margin: 0.25em;
+	background: #f9f9f9;
+	-webkit-border-radius: 1em;
+       -moz-border-radius: 1em;
+            border-radius: 1em;            
+	-webkit-box-shadow: 2px 3px 5px 1px #D9D9D9;
+	   -moz-box-shadow: 2px 3px 5px 1px #D9D9D9;
+	        box-shadow: 2px 3px 5px 1px #D9D9D9;
+}
+.pkmn .pkmn-name {
+	text-align: center;
+}

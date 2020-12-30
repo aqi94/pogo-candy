@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Pokémon Candy</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script>
+			var WIDTH = {{width}};
+			var HEIGHT = {{height}};
+			var IMAGES = {
+				primaryColor : {
+					src : '{{ url_for('static', filename='assets/images/' + image + '_base_color.png') }}',
+					obj : null
+				},
+				secondaryColor : {
+					src : '{{ url_for('static', filename='assets/images/' + image + '_secondary_color.png') }}',
+					obj : null
+				},
+				highlight : {
+					src : '{{ url_for('static', filename='assets/images/' + image + '_highlight.png') }}',
+					obj : null
+				},
+				{% if background != "" %}
+				background : {
+					src : '{{ url_for('static', filename='assets/images/' + image + '_background.png') }}',
+					obj : null
+				}
+				{% endif %}
+			};
+			var dataUrl = "{{ url_for('static', filename='js/common.js') }}";
+			var colorsDB = {{ colors_db|tojson|safe }};
+			var isMega = {{ mega }};
+			var hasBackground = ('background' in IMAGES);
+			var filenameBase = "{{ filename }}";
+		</script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/common.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/extra.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/style.css') }}" />
+		<style type="text/css">
+			.pkmn {
+				width : 12em;
+				padding-left: 1em;
+			}
+			.pkmn .pkmn-name {
+				margin-top: 0.25em;
+				margin-bottom: 0.67em;
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body id="body">
+	<div id="controls">
+		<table>
+			<tr>
+				<td style="width:256px; height:256px; vertical-align:center; text-align:center;">
+					<a id="mainImg"></a>
+				</td>
+				<td style="vertical-align:top; width:200px">
+					<label for="color1">Color 1:</label>&nbsp;<input type="color" id="color1" value="#{{base}}" oninput="inputToRender('mainImg')"><br>
+					<br><br>
+					<label for="color2">Color 2:</label>&nbsp;<input type="color" id="color2" value="#{{secondary}}" oninput="inputToRender('mainImg')"><br>
+					<br><br>
+					<button type="button" id="swapBtn" onclick="swapColors('mainImg')">Swap Colors</button>
+				</td>
+				<td style="vertical-align:top">
+					<label for="pkmnSelect">Select Pokemon:</label><br><select id="pkmnSelect"></select>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+	<div style="width:100%; text-align:center;">
+		<button type="button" id="renderAll" onclick="renderAll()">Render All</button>&nbsp;
+		<button type="button" id="clickAll" disabled>Download All</button>
+	</div>
+	<div id="renderContent" style="text-align:center">
+	</div>
+	</body>
+</html>

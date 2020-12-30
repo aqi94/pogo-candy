@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Pokémon Candy</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script>
+			var WIDTH = 256;
+			var HEIGHT = 256;
+			var IMAGES = {
+				primaryColor : {
+					src : '{{ url_for('static', filename='assets/images/candy_xl_base_color.png') }}',
+					obj : null
+				},
+				secondaryColor : {
+					src : '{{ url_for('static', filename='assets/images/candy_xl_secondary_color.png') }}',
+					obj : null
+				},
+				highlight : {
+					src : '{{ url_for('static', filename='assets/images/candy_xl_highlight.png') }}',
+					obj : null
+				},
+				background : {
+					src : '{{ url_for('static', filename='assets/images/mask_test.png') }}',
+					obj : null
+				}
+			};
+			var dataUrl = "{{ url_for('static', filename='js/common.js') }}";
+			var primaryColor = "{{ primary_color }}";
+			var secondaryColor = "{{ secondary_color }}";
+			var filename = "GO {{filename}} Candy XL.png";
+		</script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/common.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/style.css') }}" />
+		<style type="text/css">
+			.pkmn {
+				width : 12em;
+				padding-left: 1em;
+			}
+			.pkmn .pkmn-name {
+				margin-top: 0.25em;
+				margin-bottom: 0.67em;
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body>
+		<a id="candy" style="background:#ffffff">
+
+		</a>
+	</body>
+</html>
