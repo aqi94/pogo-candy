@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Pokémon Candy</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script>
+			var colorsDB = {{ colors_db|tojson|safe }};
+		</script>
+		<script type="module" src="{{ url_for('static', filename='js/candy_render.js') }}"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/style.css') }}" />
+		<style type="text/css">
+			.pkmn {
+				width : 12em;
+				padding-left: 1em;
+			}
+			.pkmn .pkmn-name {
+				margin-top: 0.25em;
+				margin-bottom: 0.67em;
+				text-align: left;
+			}
+			td {
+				text-align:center;
+			}
+
+			#imgMask {
+				background-color: #a9a9a9;
+			}
+		</style>
+	</head>
+	<body id="body">
+	<table id="navbar" style="background:#ededed; width:100%; text-align:center">
+		<tr>
+			<td><a href="/small"><button type="button" class="ribbon" style="position:static; font-size:100%; width:auto">Candy<br>(icon)</button></a></td>
+			<td><a href="/art"><button type="button" class="ribbon" style="position:static; font-size:100%; width:auto">Candy<br>(large)</button></a></td>
+			<td><a href="/xl"><button type="button" class="ribbon" style="position:static; font-size:100%; width:auto">Candy XL</button></a></td>
+			<td><a href="/mega"><button type="button" class="ribbon" style="position:static; font-size:100%; width:auto">Mega Energy</button></a></td>
+		</tr>
+	</table><br>
+	<div id="controls">
+		<table>
+			<tr>
+				<td style="width:256px; height:256px; vertical-align:center; text-align:center;">
+					<a id="mainImg" style="background:#a9a9a9;"></a>
+				</td>
+				<td style="vertical-align:top; width:300px">
+					<label for="color1">Color 1:</label>&nbsp;<input type="color" id="color1" value="#ff0000" class="imgInput"> <p id="color1Disp"></p>
+					<br><br>
+					<label for="color2">Color 2:</label>&nbsp;<input type="color" id="color2" value="#00ff00" class="imgInput"> <p id="color2Disp"></p>
+					<br><br>
+					<label for="color3">Color 3:</label>&nbsp;<input type="color" id="color3" value="#0000ff" class="imgInput"> <p id="color3Disp"></p>
+					<br>
+				</td>
+				<td style="vertical-align:top">
+					<label for="pkmnSelect">Select Pokemon:</label><br><select id="pkmnSelect"></select>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+	<div id="test" style="background: #a9a9a9;"></div>
+
+	<div style="width:100%; text-align:center;">
+		<button type="button" id="renderAll">Render All</button>&nbsp;
+		<button type="button" id="clickAll" disabled>Download All</button>
+	</div>
+	<div id="renderContent" style="text-align:center">
+		<p><br>Click "Render All" to render all images below. This may take several seconds.</p>
+	</div>
+	</body>
+</html>

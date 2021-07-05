@@ -26,7 +26,7 @@ function render2(primaryColor, secondaryColor, containerId, filename, highlight=
     }
 
     let $canvas = $(layer[workingLayer].canvas);
-	let src = $canvas[0].toDataURL();
+	let src = $canvas[0].toDataURL(); //get the working layer's canvas's source URL
 	let img = document.createElement("image");
 	img.setAttribute("src", src);
 	img.setAttribute("class", "candyImg");

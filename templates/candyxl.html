@@ -32,10 +32,9 @@
 				}
 				{% endif %}
 			};
-			var dataUrl = "{{ url_for('static', filename='js/common.js') }}";
+
 			var colorsDB = {{ colors_db|tojson|safe }};
 			var isMega = {{ mega }};
-			var hasBackground = ('background' in IMAGES);
 			var filenameBase = "{{ filename }}";
 		</script>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/common.js') }}"></script>

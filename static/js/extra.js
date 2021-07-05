@@ -1,15 +1,4 @@
-function buildSelect(selectId, containerId) {
-    let select = document.getElementById(selectId);
-    for (pkmn in colorsDB) {
-        let opt = `<option value="${pkmn}">${pkmn}</option>`;
-        select.insertAdjacentHTML('beforeend', opt);
-    }
-    select.oninput = function() {
-        document.getElementById("color1").value = "#" + colorsDB[this.value][0];
-        document.getElementById("color2").value = "#" + colorsDB[this.value][1];
-        inputToRender(containerId);
-    }
-}
+
 
 function swapColors(containerId) {
     let color1 = document.getElementById("color1");

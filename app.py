@@ -46,6 +46,7 @@ def api_render(path):
 
     return send_file(file_object, mimetype='image/PNG')
 
+"""
 @app.route('/<path>', methods=['GET'])
 def candy_render(path):
     def build_colors_db():
@@ -75,7 +76,7 @@ def candy_render(path):
         background_img = "candy_mega_background"
         width = height = 128
         filename = "Mega Energy"
-        mega = "true"
+        return render_template('megaenergy.html', width=width, height=height, filename=filename, image=image)
     elif path in ('vector', 'small'):
         image = "candy_vector"
         width = height = 64
@@ -92,6 +93,26 @@ def candy_render(path):
     # print(colors_db)
     return render_template('candyxl.html', image=image, colors_db=colors_db, background=background_img,
                            width=width, height=height, mega=mega, base=base, secondary=secondary, filename=filename)
+"""
+
+@app.route('/<path>', methods=['GET'])
+def candy_render(path):
+    def build_colors_db():
+        colors = get_colors()
+        colors_dict = {}
+        for idx, row in colors.iterrows():
+            if row['Base color']:
+                base = row['Base color']
+                secondary = row['Ring color']
+                key = row['Candy'].replace(" Candy", "")
+                if path == "mega":
+                    colors_dict[key] = [secondary, base, "ffffff", secondary]
+                else:
+                    colors_dict[key] = [base, secondary, "ffffff", "000000"]
+        return colors_dict
+
+    colors_db = build_colors_db()
+    return render_template('candy_render.html', colors_db=colors_db)
 
 if __name__ == "__main__":
     app.run(debug=True)
