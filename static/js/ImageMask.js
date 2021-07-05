@@ -109,6 +109,7 @@ export default class ImageMask {
             img.onload = () => resolve(img);
             img.onerror = reject;
             img.src = src;
+            img.setAttribute('crossOrigin', '');
         });
     }
 

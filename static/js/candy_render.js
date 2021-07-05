@@ -1,18 +1,18 @@
 import ImageMask from "./ImageMask.js";
 
 var fileSources = {
-    "candyxl": "/static/assets/images/LV40_XLCANDY_RGB_PSD.png",
-    "mega": "/static/assets/images/pokemon_details_mega_candy.png",
+    "candyxl": "//raw.githubusercontent.com/aqi94/pogo-candy/master/static/assets/images/LV40_XLCandy_RGB_PSD.png",
+    "mega": "//raw.githubusercontent.com/aqi94/pogo-candy/master/static/assets/images/pokemon_details_mega_candy.png",
     "large": [
         `candy_painted_base_color.png`,
         `candy_painted_secondary_color.png`,
         `candy_painted_highlight.png`,
-    ].map(f => "/static/assets/images/" + f),
+    ].map(f => "//raw.githubusercontent.com/aqi94/pogo-candy/master/static/assets/images/" + f),
     "small": [
         `candy_vector_base_color.png`,
         `candy_vector_secondary_color.png`,
         `candy_vector_highlight.png`,
-    ].map(f => "/static/assets/images/" + f),
+    ].map(f => "//raw.githubusercontent.com/aqi94/pogo-candy/master/static/assets/images/" + f),
 };
 
 function pkmnToId(pkmn) { //used in renderAll
