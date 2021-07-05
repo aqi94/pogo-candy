@@ -11,6 +11,23 @@
 		<![endif]-->
 		<script>
 			var colorsDB = {{ colors_db|tojson|safe }};
+
+			var IMAGES = {
+				primaryColor : {
+					src : '{{ url_for('static', filename='assets/images/' + 'candy_painted' + '_base_color.png') }}',
+					obj : null
+				},
+				secondaryColor : {
+					src : '{{ url_for('static', filename='assets/images/' + 'candy_painted' + '_secondary_color.png') }}',
+					obj : null
+				},
+				highlight : {
+					src : '{{ url_for('static', filename='assets/images/' + 'candy_painted' + '_highlight.png') }}',
+					obj : null
+				},
+			};
+
+
 		</script>
 		<script type="module" src="{{ url_for('static', filename='js/candy_render.js') }}"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
